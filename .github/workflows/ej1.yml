@@ -1,0 +1,22 @@
+name: ej1 workflow
+
+on: push
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Bajar codigo
+        uses: actions/checkout@v4
+      - name: Usar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Instalar pytest
+        run: pip install pytest
+      - name: Test con pytest
+        run: pytest test.py
+      - name: Satisfactorio?
+        if: success()
+        run: echo "Workflow completed successfully"
