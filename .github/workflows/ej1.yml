@@ -1,6 +1,7 @@
 name: ej1 workflow
 
-on: push
+on:
+  workflow_dispatch:
 
 jobs:
   test_job:

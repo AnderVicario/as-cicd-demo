@@ -1,6 +1,7 @@
 name: Code Quality Check
 
-on: push
+on:
+  workflow_dispatch:
 
 permissions:
   security-events: write
