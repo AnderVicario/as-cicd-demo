@@ -12,8 +12,9 @@ jobs:
       - name: Probar codigo
         run: python3 main.py
     
-  dokcker:
+  docker:
     runs-on: ubuntu-latest
+    needs: test-python
 
     steps:
       - name: Mostrar mensaje
