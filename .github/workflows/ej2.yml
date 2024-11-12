@@ -1,0 +1,25 @@
+name: Code Quality Check
+
+on: push
+
+permissions:
+  security-events: write
+
+jobs:
+  lint_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run Python Linter
+        uses: advanced-security/python-lint-code-scanning-action@v1
+        with:
+          linter: pylint
+          args: ej2main.py
